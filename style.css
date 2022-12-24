@@ -1,0 +1,599 @@
+body{
+    background-color: rgb(24,24,24);
+    overflow-x: hidden;
+
+}
+*{
+    margin: 0;
+    padding: 0%;
+}
+.display{
+    
+    width:100%;
+    height:20rem;
+    background-image: linear-gradient(65deg,rgb(6, 110, 180),rgb(119, 7, 211));
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+}
+.tracks{
+    width: 100%;
+    height: 70vh;
+    background-color: rgb(24,24,24);
+    
+
+}
+
+.lyrics{
+    width: 80%;
+    max-height: 20vh;
+    background-color: transparent;
+    color: rgb(0, 97, 182);
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: .3rem;
+    
+    
+}
+.lyrics::-webkit-scrollbar {
+    background-color: transparent;
+    
+}
+.lyrics::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 97, 182);
+    border-radius: 2rem;
+    width: 1rem;
+   
+  }
+.lyrics::-webkit-scrollbar-track{
+    background-color: transparent;
+
+  }
+  
+  .right::-webkit-scrollbar {
+    background-color: transparent;
+    width: .2rem;
+}
+.right::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 97, 182);
+    border-radius: 2rem;
+    width: 1rem;
+   
+  }
+.right::-webkit-scrollbar-track{
+    background-color: transparent;
+
+  }
+
+body::-webkit-scrollbar {
+    background-color: rgb(107, 107, 107);
+    
+    width: .2rem;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 97, 182);
+    border-radius: 2rem;
+    width: 1rem;
+   
+  }
+body::-webkit-scrollbar-track{
+    background-color: transparent;
+
+  }
+.end{
+    width: 100%;
+    min-height:3rem;
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(29, 29, 29);
+    border-bottom: .3rem solid rgb(24,121,138);
+}
+.iconDiv-end{
+    width: 3rem;
+    height: 3rem;
+    background-image: url(roarmonster.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: .5rem;
+    margin-bottom: 1rem;
+
+}
+.lyriccen{
+    margin-top: 2rem;
+    
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconDiv-end-title{
+    color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(roarmonster.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+}
+.end-tags{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    background-image:linear-gradient(65deg,rgb(6, 110, 180),rgb(119, 7, 211));
+
+}
+.plymedia-div{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add{
+    cursor: pointer;
+    
+}
+.roar-section-cen{
+    width: 100%;
+    height:20rem;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    background-image:linear-gradient(65deg,rgb(6, 110, 180),rgb(119, 7, 211)50%,rgb(24,24,24)3%);
+}
+.roar-monster-section-left-cen{
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.roar-monster-section-right-cen{
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.track-gif-temp{
+    width:60%;
+    height: 15rem;
+    background-image: url(YdBO.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.roar-monster-section{
+    width: 10rem;
+    height:10rem;
+   
+    margin-left: 1rem;
+    transition: 300ms;
+    visibility: hidden;
+    position: fixed;
+    background-image: url(roarmonster.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: roarplay-anim 10s infinite linear;
+}
+#waveform{
+    width: 100%;
+    height: 30vh;
+}
+.song{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+   
+    align-items: center;
+}
+.title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 5vh;
+    text-align: center;
+    background-image: linear-gradient(30deg,rgb(239, 250, 82),orange);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.developer{
+    cursor: pointer;
+   fill: rgb(223, 4, 4);
+}
+.duration{
+    transform: 300ms;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 97, 182);
+    background-color: rgb(24, 24, 24);
+    width:max-content;
+    text-align: center;
+    padding-top:      .5rem ;
+    padding-bottom:   .5rem;
+    border-radius: 2rem;
+    
+   
+}
+a{
+    visibility: hidden;
+}
+.duration-center{
+    width: 100%;
+    height: 2vh;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.media-progress{
+   transition: 100ms;
+   max-width: 100%;
+    height: .5rem;
+    background-color: rgb(6, 110, 180);
+    width: 0;
+    border-radius: 1rem;
+    
+}
+.mediaPro{
+    border-radius: 1rem;
+    width: 80%;
+    height: .5rem;
+    background-color: rgb(58, 58, 58);
+}
+.replay{
+    transform: rotate(-65deg);
+}
+.fireshell-load{
+    width: 3rem;
+   
+   position: absolute;
+ 
+  
+    
+    height:3rem;
+  
+   animation: mload 1s linear infinite;
+   opacity: 90%;
+
+    border-radius: 100%;
+ 
+   border-right: .6rem solid rgb(107, 107, 107);
+        border-left: .6rem solid rgb(24, 24, 24);
+        border-top:.6rem solid rgb(24, 24, 24);
+        border-bottom:.6rem solid rgb(24, 24, 24);
+
+}
+.lyr3{
+    white-space:pre-wrap;
+   
+}
+@keyframes mload {
+    0%{
+     
+     border-left: .6rem solid rgb(24, 24, 24);
+     border-top:.6rem solid rgb(24, 24, 24);
+     border-bottom:.6rem solid rgb(6, 110, 180);
+     
+    }
+  50%{
+     border-top:.6rem solid rgb(107, 107, 107);
+     border-bottom:.6rem solid rgb(6, 110, 180);
+     border-left: .6rem solid rgb(107, 107, 107);
+    
+  }
+    100%{
+     transform: rotate(360deg);
+     border-left: .6rem solid rgb(24, 24, 24);
+     border-top:.6rem solid rgb(24, 24, 24);
+     border-bottom:.6rem solid rgb(6, 110, 180);
+    
+    }
+ }
+.top{
+    display: flex;
+    justify-content: flex-end;
+    
+    align-items: center;
+    width: 100%;
+    height: 0rem;
+    display: flex;
+    transition: 300ms;
+    background-color: transparent;
+    position:absolute;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+.newSong{
+    background-color: transparent;
+    outline: none;
+    caret-color: rgb(223, 223, 223);
+    border: 0;
+    max-width:50%;
+    font-family:monospace;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    border-radius: .2rem;
+    padding: .2rem;
+    color: rgb(223, 223, 223);
+    
+    visibility: hidden;
+    position: fixed;
+    border: .1rem solid rgb(223, 223, 223);
+}
+.newSong:focus{
+    border: .1rem dashed rgb(228, 228, 228);
+}
+.close-top{
+    visibility: hidden;
+    position: fixed;
+    margin-right: 1rem;
+}
+.go{
+    visibility: hidden;
+    position: fixed;
+    margin-right: 1rem;
+    transition: none;
+    cursor: pointer;
+}
+.go:hover{
+    fill: rgb(19, 19, 19);
+}
+::placeholder{
+    color: rgb(240, 240, 240);
+    opacity: 100%;
+}
+.right{
+    transition: 300ms;
+    width: 0%;
+    height:100vh;
+  
+   
+    background-color:rgb(24, 24, 24);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+.all{
+    display: flex;
+  
+    
+}
+.emailus{
+    fill: rgb(0, 97, 182);
+    cursor: pointer;
+}
+.modecen{
+    width: 100%;
+    height: 2vh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 3rem;
+}
+.mode{
+    width: 2rem;
+    height: 2rem;
+    visibility: visible;
+    position: relative;
+    fill: rgb(230, 230, 230);
+}
+.playtrack{
+    width: 100%;
+    height:5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+.waveform{
+    width: 100%;
+    height: 30vh;
+
+}
+.audioTrack{
+    width: 80%;
+    height: 20vh;
+    background-color: transparent;
+}
+.playbtn{
+    width:  2rem;
+    fill: rgb(6, 110, 180);
+    height: 2rem;
+    transform: scale(1.5);
+    border-radius: 100%;
+    padding: .5rem;
+}
+.forward{
+    width:  2rem;
+    fill: rgb(6, 110, 180);
+    height: 2rem;
+   
+    border-radius: 100%;
+    padding: .5rem;
+}
+.left{
+    width: 100%;
+}
+.store-elm-div{
+    margin-top: 1rem;
+}
+.keys{
+    width:  2rem;
+    fill: rgb(6, 110, 180);
+    height: 2rem;
+   margin-left:1rem ;
+   margin-right: 1rem;
+    border-radius: 5rem;
+    padding: .5rem;
+}
+.keys:hover{
+    background-color: rgb(58, 58, 58);
+}
+@keyframes roarplay-anim{
+    0%{
+        transform: rotate(0deg);
+        
+        
+    }
+    50%{
+       
+    }
+    100%{
+        transform: rotate(360deg);
+        
+    }
+}
+.more-effects{
+    fill: rgb(230, 230, 230);
+    left: .5rem;
+    position: fixed;
+    top: .5rem;
+}
+@keyframes fade-in {
+    0%{
+        opacity: 0%;
+
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+.trackChange{
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(0, 97, 182);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 2rem;
+    width:50%;
+    height: 3rem;
+    border-right: .2rem solid rgb(0, 97, 182);
+    border-radius:.2rem ;
+    background-color: rgb(19, 19, 19);
+    margin-top: 2rem;
+    cursor: pointer;
+    visibility: hidden;
+}
+.trackChange:hover{
+    color: rgb(107, 107, 107);
+    border-right: .2rem solid rgb(107, 107, 107);
+}
+.end-tags-left{
+    width: 100%;
+    height:10rem ;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: transparent;
+    border: 0;
+}
+.end-tags-right{
+    
+    width: 100%;
+    height:10rem ;
+ 
+}
+.fireshell-logo{
+    width: 4rem;
+    height:4rem;
+    background-image: url(firshell.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(100deg);
+}
+.fireshell-logo-div{
+    flex-direction: column;
+    width: 100%;
+    cursor: pointer;
+    height:10rem ;
+    display: flex;
+    background-color: rgb(24, 24, 24);
+    justify-content: center;
+    align-items:center;
+   
+}
+.star{
+    background-color: transparent;
+    fill: rgb(24,121,138);
+}
+.fireshell-logo-text{
+    cursor: pointer;
+    font-size: 2rem;
+    color:rgb(24,121,138);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+.end-tags-right-div-common{
+    max-width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    cursor: pointer;
+    
+    transition: 100ms;
+}
+.end-tags-right-div-common:hover{
+    background-color: rgb(24, 24, 24);
+}
+.tag-text-common{
+    color: rgb(223, 223, 223);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.trackD{
+    width: 100%;
+    height: max-content;
+    background-color: transparent;
+    border: .2rem solid rgb(24,121,138);
+    border-left: 0;
+    border-right: 0;
+    
+}
+.trackD-songN{
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+
+}
+.trackD-tab{
+    width: 100%;
+    height:max-content;
+    background-color: rgb(24, 24, 24);
+}
+.trackN{
+    color: rgb(230, 230, 230);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+}
+.trackAz{
+    color: rgb(230, 230, 230);
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
