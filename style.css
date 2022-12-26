@@ -128,6 +128,7 @@ body::-webkit-scrollbar-track{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
     -webkit-background-clip: text;
 }
 .end-tags{
@@ -173,14 +174,6 @@ body::-webkit-scrollbar-track{
     justify-content: center;
     align-items: center;
 }
-.track-gif-temp{
-    width:60%;
-    height: 15rem;
-    background-image: url(YdBO.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
 .roar-monster-section{
     width: 10rem;
     height:10rem;
@@ -188,17 +181,14 @@ body::-webkit-scrollbar-track{
     margin-left: 1rem;
     transition: 300ms;
     visibility: hidden;
-    position: fixed;
+    
     background-image: url(roarmonster.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     animation: roarplay-anim 10s infinite linear;
 }
-#waveform{
-    width: 100%;
-    height: 30vh;
-}
+
 .song{
     width: 100%;
     height: 20vh;
@@ -250,7 +240,10 @@ a{
     height: .5rem;
     background-color: rgb(6, 110, 180);
     width: 0;
+    border-right: .3rem solid rgb(24,24,24);
     border-radius: 1rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
     
 }
 .mediaPro{
@@ -402,7 +395,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    
     
 }
 .waveform{
@@ -419,7 +412,7 @@ a{
     width:  2rem;
     fill: rgb(6, 110, 180);
     height: 2rem;
-    transform: scale(1.5);
+   transform: scale(1.5);
     border-radius: 100%;
     padding: .5rem;
 }
@@ -445,6 +438,7 @@ a{
    margin-right: 1rem;
     border-radius: 5rem;
     padding: .5rem;
+    cursor: pointer;
 }
 .keys:hover{
     background-color: rgb(58, 58, 58);
@@ -537,6 +531,40 @@ a{
 .star{
     background-color: transparent;
     fill: rgb(24,121,138);
+    
+}
+@keyframes star-add {
+    0%{
+        fill: rgb(24,121,138);
+
+    }
+    50%{
+        transform: scale(.8);
+        fill: rgb(239, 250, 82);
+
+    }
+    100%{
+        transform: scale(1);
+        fill: hotpink;
+    }
+    
+}
+@keyframes star-rmv {
+    0%{
+        transform: scale(1);
+        fill: hotpink;
+
+
+    }
+    50%{
+        transform: scale(.8);
+        fill: rgb(236, 236, 236);
+
+    }
+    100%{
+        transform: scale(1);
+        fill: rgb(24,121,138);
+    }
 }
 .fireshell-logo-text{
     cursor: pointer;
@@ -565,35 +593,296 @@ a{
 .trackD{
     width: 100%;
     height: max-content;
-    background-color: transparent;
-    border: .2rem solid rgb(24,121,138);
-    border-left: 0;
-    border-right: 0;
+    background-color: rgb(13, 12, 24);
+    border-top: .2rem solid rgb(24,121,138);
     
-}
-.trackD-songN{
-    width: 100%;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    height: 3rem;
     display: flex;
     justify-content: center;
     align-items:center;
+    
+}
+.trackD-songN{
+    padding-left: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 2rem;
+    display: flex;
+    justify-content:flex-start;
+    align-items:left;
     flex-direction: column;
 
 }
 .trackD-tab{
     width: 100%;
+    height:1.3rem;
+    background-color:transparent;
+    display: flex;
+    justify-content:flex-end;
+    align-items:right;
+    padding-right: 1rem;
+    
+}
+.browser-phone{
+    opacity: 20%;
+}
+.popup-box-container-hidden-cen{
+    width: 100%;
     height:max-content;
+   
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    
+    
+}
+.pop-up-settings{
+    width: 100%;
+    height:30rem;
+    
+    visibility: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position:fixed;
     background-color: rgb(24, 24, 24);
+    
+    border: .2rem solid rgb(24,121,138);
+    
+    border-right: 0;
+    border-left: 0;
+  
+}
+.pop-up-documentation{
+    width: 50%;
+    height:30rem;
+    overflow-x: hidden;
+    visibility: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    background-color: rgb(24, 24, 24);
+    
+    border: .2rem solid rgb(24,121,138);
+   
+    border-right: 0;
+    border-left: 0;
+   
+}
+.pop-up-settings::-webkit-scrollbar{
+    background-color: transparent;
+    width: .5rem;
+    
+}
+.pop-up-settings::-webkit-scrollbar-track{
+    background-color: transparent;
+    width: .5rem;
+    
+}
+.pop-up-settings::-webkit-scrollbar-thumb{
+    width: .5rem;
+    background: rgb(6, 110, 180);
+    
+    border-radius: 3rem;
+    
+}
+
+.pop-up-documentation::-webkit-scrollbar{
+    background-color: transparent;
+    width: 1rem;
+}
+.pop-up-documentation::-webkit-scrollbar-track{
+    background-color: transparent;
+    width: 1rem;
+}
+.pop-up-documentation::-webkit-scrollbar-thumb{
+    width: 1rem;
+    background: rgb(24,121,138);
+    border-radius: 3rem;
+}
+.pop-up-settings-headline-div{
+    width: 100%;
+    height: max-content;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(13, 12, 24);
+    
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.pop-up-settings-headline{
+    color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.7rem;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(65deg,rgb(243, 243, 6),rgb(250, 99, 124),rgb(54, 54, 255));
+
+}
+@keyframes pop-up-in-come-anim {
+    0%{
+        opacity: 0%;
+
+    }
+    50%{
+        
+        opacity: 80%;
+    }
+    100%{
+       
+        opacity: 100%;
+    }
+}
+.common-setting-cen{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-top: 3rem;
+    flex-direction: column;
+}
+.common-h3-setting{
+    color: rgb(218, 218, 218);
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: .5rem;
+    cursor: default;
+    font-size: 1.7rem;
+}
+.common-h3-setting-value{
+    color: rgb(218, 218, 218);
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: .5rem;
+    cursor: default;
+    font-size: 1rem;
+}
+.common-input-setting{
+    width: 60%;
+}
+
+.common-input-setting[type="range"] {
+   -webkit-appearance: none;
+    margin-right: 15px;
+    width: 60%;
+    height: .5rem;
+    background: transparent;
+    border-radius:1rem;
+    background-image: linear-gradient(#ff4500, #ff4500);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+.common-input-setting[type=range]::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+
+.common-input-setting[type=range]::-webkit-slider-thumb{
+    background-color: rgb(0, 97, 182);
+    
+}
+
+@media only screen and (max-width: 730px) {
+    .ext1 , .ext2, .ext3
+{
+    visibility: hidden;
+    position: fixed;
+}
+    .browser-phone{
+        opacity: 100%;
+    }
+    .browser{
+       opacity: 20%;
+    }
+   
+ .pop-up-settings{
+    visibility: hidden;
+    position: fixed;
+ }
+}
+@media only screen and (max-width:961px){
+    
+     .popup-box-container-hidden-cen{
+        flex-direction: column;
+     }
+     .pop-up-documentation{
+        width: 100%;
+        
+     }
+
 }
 .trackN{
-    color: rgb(230, 230, 230);
+    color: rgb(6, 110, 180);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    white-space:nowrap;
 }
 .trackAz{
-    color: rgb(230, 230, 230);
-    font-size: 1rem;
+    color: rgb(6, 110, 180);
+    font-size: .56rem;
     font-family: Arial, Helvetica, sans-serif;
+    white-space:nowrap;
+}
+.userI{
+    fill: rgb(24,121,138);
+    width:  1.3rem;
+    height: 1.3rem;
+    margin-left: 2rem;
+    cursor: pointer;
+}
+.roar-event-div{
+    width:max-content;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 2rem;
+    background-color: rgb(24, 24, 24);
+    border-radius: 1.5rem;
+    border: .2rem solid rgb(24,121,138);
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items:center;
+    opacity: 90%;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    transition: 300ms;
+}
+.roar-event-h3{
+    color: rgb(24,121,138);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem
+}
+.userB{
+    fill: rgb(24,121,138);
+    width:  1.6rem;
+    height: 1.6rem;
+    cursor: default;
+    margin-right: .2rem;
+
+}
+.effects-pizzicato:focus + .pop-up-settings{
+    visibility: visible;
+    position: relative;
+}
+.commonBtn-setting{
+    width:  6rem;
+    min-height: 2.15rem;
+    border-radius: 2rem;
+    outline: 0;
+    border: 0;
+    background-color: rgb(0, 97, 182);
+    color: rgb(236, 236, 236);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    margin: .4rem;
+}
+.resetBtn-settings{
+    background-color: rgb(255, 25, 25);
+}
+h3{
+    cursor: default;
 }
