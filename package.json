@@ -14,7 +14,14 @@
   "license": "ISC",
   "dependencies": {
     "envjs": "^0.0.1",
+    "express": "^4.18.2",
+    "jquery": "^3.6.3",
+    "mysql": "^2.18.1",
     "pizzicato": "^0.6.4",
+    "watermarkjs": "^2.1.1",
     "wavesurfer.js": "^6.4.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
   }
 }

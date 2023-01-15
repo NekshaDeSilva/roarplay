@@ -3,99 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RoarPlay</title>
-    <link rel="shortcut icon" href="roarmonster.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>BeatMaax - Kick Some Beats And Dance!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="./assests/beatmaax-hd-ico.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.4/wavesurfer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.js" integrity="sha512-VyI1QFJ5vvwgy/FPf+XWs64XHBFUEMRZNzrhQiXdOFEyDuNO6H8hp/Of4jfo7NG4UEJOnxjP5cwj1P9nqLkTYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/BrowserFS/2.0.0/browserfs.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    
     
 </head>
 <body>
-    
-    <div class="top">
+
+  <div class="top">
         
-        <input placeholder="Paste URL Here" type="text" class="newSong"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mode go" viewBox="0 0 16 16">
-          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mode close-top" viewBox="0 0 16 16">
-          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-        </svg>
-    </div>
+    <input placeholder="Paste." type="text" class="newSong"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mode go" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mode close-top" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+    </svg>
+</div>
+   <div id="massage-box-cen"><div class="loadwheel-all"><div class="loadwheel-right-ops-common"></div></div><div id="msg"></div><div id="promo-msg"></div></div>
     <div class="all">
     <div class="right" >
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="keys more-effects" viewBox="0 0 16 16">
-        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-      </svg>
+      <div class="right-p-left">
       <div class="modecen">
+        <div class="right-c-panel"> 
       <svg fill="rgb(2,91,271)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="browser mode" viewBox="0 0 16 16">
        
       </svg>
-      
-      
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="browser-phone mode" viewBox="0 0 16 16">
+        <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+      </svg>
       </div>
-      <div class="modecen">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="browser-phone mode" viewBox="0 0 16 16">
-          <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
-        </svg>
-      </div>
-      <div class="modecen">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="speaker-setup mode" viewBox="0 0 16 16">
-          <path d="M8 3a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a6 6 0 1 1 12 0v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1V8a5 5 0 0 0-5-5z"/>
-        </svg>
-      </div>
-      <div class="modecen">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="developer mode" viewBox="0 0 16 16">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-        </svg>
-      </div>
-      <div class="modecen">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="emailus mode" viewBox="0 0 16 16">
-          <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2ZM8 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
-        </svg>
-      </div>
-      <div class="modecen">
+      <div class="right-c-panel spec-cont-panel-right-c"> 
+        <div class="add-key-div-right common-invisible-div" role="button">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="keys add" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
         </svg>
+        <h3 class="sleepingtxt common-invisible-div-text">URL Play</h3>
+        </div>
+        <div class="upload-offline-key-div-right common-invisible-div" role="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="keys upldOff" viewBox="0 0 16 16">
+            <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM7.5 6.707 6.354 7.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707z"/>
+          </svg>
+        <h3 class="sleepingtxt common-invisible-div-text">Play Offline</h3>
+        </div>
+        </div>
+        <div class="all-right-ops-cen">
+        <div  class="all-right-ops">
+        <div class="right-c-panel spec-top-ops-panel">
+          <div class="right-ops"></div>
+          <div class="right-ops"></div>
+          <div class="right-ops"></div>
+          <div class="right-ops"></div>
+          
+        </div>
+        </div>
+        </div>
+
+        
       </div>
-      <div class="modecen">
-        <div role="button" class="trackChange track1">De</div>
-      </div>
-      <div class="modecen">
-        <div role="button" class="trackChange track2">Sa</div>
-      </div>
-      <div class="modecen">
-        <div role="button" class="trackChange track3">Mo</div>
-      </div>
-      <div class="modecen">
-        <div role="button" class="trackChange track4">Iw</div>
-      </div>
-      <div class="modecen">
-        <div role="button" class="trackChange track5">Go</div>
-      </div>
-    </div>
-    <div class="left">
-    <div class="display">
       
+      </div>
+      <div class="email-feedbackDiv">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="emailus mode" viewBox="0 0 16 16">
+          <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2ZM8 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+        </svg>
+        <h3 class="emailus-h3-title">FeedBack</h3>
+        </div>
+      <div class="right-p-right">
+        <div class="userBox">
+          <div class="avatarDiv">
+            <div class="avatar1 commonavtr-sample"><div class="beatmaax-svg-signIn"></div><h3 class="avatarNm">Account</h3></div>
+          </div>
+          <div class="sign-in-box-catched">
+           <div class="sign-box-inside-div-cen"><input type="text" minlength="5" maxlength="15" placeholder="Enter UserName Here" class="common-input-sign-box username-input"></div>
+           <div class="sign-box-inside-div-cen-otr"><h3 class="common-input-sign-box-text username-txt"><span class="required-mark">*</span>Enter A Name Less Than 8 Letters</h3></div>
+           <div class="sign-box-inside-div-cen"><input type="password" minlength="5" maxlength="8" placeholder="Enter Password Here" class="common-input-sign-box password-input"></div>
+           <div class="sign-box-inside-div-cen-otr"><h3 class="common-input-sign-box-text password-txt"><span class="required-mark">*</span>Password Status : <span class="password-stts-spn"></span></h3></div>
+           <div class="sign-box-inside-div-cen"><input type="text" minlength="4" maxlength="10" placeholder="My Display Name Is" class="common-input-sign-box nknme-input"></div>
+           <div class="sign-box-inside-div-cen-otr"><h3 class="common-input-sign-box-text nknme-txt"><span class="required-mark">*</span>Anyone Can See Your Nickname</h3></div> 
+          </div>
+        </div>
+        <div class="common-right-p-div-toolbox-all">
+        <div class="common-right-p-div-toolbox">
+          
+        </div>
+        <div class="common-right-p-div-toolbox">
+          
+        </div>
+        <div class="common-right-p-div-toolbox">
+         
+        </div>
+        <div class="common-right-p-div-toolbox">
+         
+        </div>
+        </div>
+      </div>
+   
+    </div>
+    
+    <div class="left">
+      
+    <div class="display">
       
       
       <div class="roar-section-cen">
         <div class="roar-monster-section-left-cen">
-      <div class="roar-monster-section"></div>
+
+      <div class="roar-monster-section">
+      </div>
+      <div class="fireshell-load"></div>
       </div>
       <div class="roar-monster-section-right-cen">
         <div id="waveform"></div>
       </div>
       
       </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="keys more-effects" viewBox="0 0 16 16">
+        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+      </svg>
       <div class="roar-event-div"><svg draggable="false" id="playbtn" title="Play" xmlns="http://www.w3.org/2000/svg" class="userB btn-display" viewBox="0 0 16 16"> <path class="playcls" d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg><h3 class="roar-event-h3">Playing</h3></div>
-        <div class="fireshell-load"></div>
     </div>
+  
     <div class="trackD">
+      <div class="hidden-divFor-more-effects"></div>
       <div class="trackD-songN">
-        <h3 class="trackN">Mage Hade Upan Lade</h3>
-        <h3 class="trackAz">Dinusha x Sky Jay x EvoBeats</h3>
+        <h3 class="trackN">Loading...</h3>
+        <h3 class="trackAz">Loading...</h3>
       </div>
+      
       <div class="trackD-tab">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="userI extW ext1" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M7.364 3.5a.5.5 0 0 1 .5-.5H14.5A1.5 1.5 0 0 1 16 4.5v10a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 3 14.5V7.864a.5.5 0 1 1 1 0V14.5a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-10a.5.5 0 0 0-.5-.5H7.864a.5.5 0 0 1-.5-.5z"/>
@@ -118,7 +159,6 @@
       </div>
      
     </div>
-    
     <div class="popup-box-container-hidden-cen">
       <div class="pop-up-settings">
         <div class="pop-up-settings-headline-div">
@@ -128,9 +168,7 @@
           </div>
           <div class="common-setting-cen">
             <div class="btnPanel-setting-pop">
-              <button class="commonBtn-setting saveBtn-settings">
-                Save
-              </button>
+              <svg draggable="false" id="playbtn" title="Play" xmlns="http://www.w3.org/2000/svg" class="effect-bar-icon playbtnE" viewBox="0 0 16 16"> <path  d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>
               <button class="commonBtn-setting resetBtn-settings">
                 Reset
               </button>
@@ -138,38 +176,42 @@
           </div>
           <div class="common-setting-cen">
             <h3 class="common-h3-setting">Pan</h3>
-            <input type="range" class="common-input-setting str-pan">
-            <h3 class="common-h3-setting-value pan-value">1x</h3>
+            <div class="input-str-pan-cen-div"><input onclick="paChk()" type="checkbox" class="common-input-setting str-pan"><input onclick="paOChk()" type="checkbox" class="common-input-setting str-pan1"></div>
+            <div class="input-str-pan-cen-div div-special-cenFor-svg"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="stereo-status" viewBox="0 0 16 16">
+              <path d="M9 4a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-2.5 6.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0z"/>
+              <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm6 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 7a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"/>
+            </svg><h3 class="common-h3-setting-value pan-value">Stereo</h3></div>
         </div>
         <div class="common-setting-cen">
-          <h3 class="common-h3-setting">Flanger</h3>
-          <input type="range" class="common-input-setting str-fln">
-          <h3 class="common-h3-setting-value pan-value">1x</h3>
+          <h3 class="common-h3-setting">FlanBass</h3>
+          <input onclick="fChk()" type="checkbox" class="common-input-setting str-fln">
+          <h3 class="common-h3-setting-value fln-value">None</h3>
       </div>
       <div class="common-setting-cen">
-        <h3 class="common-h3-setting">Noise</h3>
-        <input type="range" class="common-input-setting str-noi">
-        <h3 class="common-h3-setting-value pan-value">1x</h3>
+        <h3 class="common-h3-setting">ReveR-Delay</h3>
+        <input onclick="nChk()" type="checkbox" class="common-input-setting str-noi">
+        <h3 class="common-h3-setting-value noi-value">None</h3>
     </div>
     <div class="common-setting-cen">
-      <h3 class="common-h3-setting">Bass</h3>
-      <input type="range" class="common-input-setting str-bass">
-      <h3 class="common-h3-setting-value pan-value">1x</h3>
+      <h3 class="common-h3-setting">LowPassX</h3>
+      <input onclick="bChk()" type="checkbox" class="common-input-setting str-bass">
+      <h3 class="common-h3-setting-value bass-value">None</h3>
   </div>
   <div class="common-setting-cen">
     <h3 class="common-h3-setting">Pitch</h3>
-    <input type="range" class="common-input-setting str-pch">
-    <h3 class="common-h3-setting-value pan-value">1x</h3>
+    <input onclick="pChk()" type="checkbox" class="common-input-setting str-pch">
+    <h3 class="common-h3-setting-value pch-value">None</h3>
 </div>
       </div>
       <div class="pop-up-documentation">
           <div class="pop-up-settings-headline-div">
-          <h3 class="pop-up-settings-headline">Suggested ⚡</h3>
+          <h3 class="pop-up-settings-headline">Lyrics 🗺</h3>
         </div>
       </div>
     </div>
+   
     <div class="tracks">
-        <div class="plymedia-div"><div class="mediaPro"><div class="media-progress"></div></div></div>
+        <div class="plymedia-div"><input value="0" type="range" class="media-progress"></div>
         <div class="duration-center"><h3 class="duration">0.00 / 0.00</h3></div>
         <div class="playtrack">
           
@@ -187,47 +229,24 @@
           </svg>
           
         </div>
-       <div class="lyriccen"><div class="lyrics"><h3 class="lyr3">
-        Hæmadāma Rǣṭa Ahase Dilena Taru Mal Vat
-Hæḍakāra Gǣnu Lamayō Maṭa Oba Ran Van
-Ratu Rōsa Mal Kælǣve Mal Kumāriyavan
-Hari Ādareyi Oyāṭa Ālavantiye Man
+       <div class="lyriccen"><div class="lyrics"><h3 class="lyr3">Loading Lyrics..</h3>
+      </div>
+      <div class="lyricEnd-tags">
 
-Mage Hadē Upan Ladē
-Nuba Magē Veyan Nagē
-Iga Vaṭē Pulul Hæḍē
-Æs Dekē Poṭat Giyā Magē..//
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="keys-mini" viewBox="0 0 16 16">
+        <path d="M9.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM6 5.5l-4.535-.442A.531.531 0 0 1 1.531 4H14.47a.531.531 0 0 1 .066 1.058L10 5.5V9l.452 6.42a.535.535 0 0 1-1.053.174L8.243 9.97c-.064-.252-.422-.252-.486 0l-1.156 5.624a.535.535 0 0 1-1.053-.174L6 9V5.5Z"/>
+      </svg>
+      <h3 class="lyricEnd-tags-h3">Universally lyriced</h3>  
 
-Hada Patule Nægena Rāvē
-Oba Gænama Kiyana Tālē
-Hari Amutu Deyaki Ālē
-Oba Ræjina Mage Katāvē
-
-Kalu Varala Nitabe Gǣvē
-Sudu Sumudu Muvaṭa Pǣhē
-Ruva Lapaṭi Penuma Ǣgē
-Sæpa Dennam Mage Māligāvē
-
-Ē Pembari Oba Lan Karagana
-Sundara Ira Bæsayanakoṭa
-Sil Aragana Vage Bǣ Inna Oyā Laga
-
-Lassana Poḍi Tol Peti Aga
-Mat Vuna Vana Bam̆bareki Mama
-Sil Aragana Vage Bǣ Inna Oyā Laga
-
-Ōnā Maṭa Ālen Velenna Bōmā
-Rā Ginna Nivā
-Hæma Tapparayama Lan Karagana Inna Oyā
-Maṭa Kalpayak Vat Tava Ōnā</h3></div></div>
+    </div>
+    <div class="lyricNot-tags"></div>
+      </div>
     </div>
     
     </div>
     </div>
-    <div class="end">
-      <div class="iconDiv-end"></div>
-      <h3 class="iconDiv-end-title">2022@ Roar Play</h3>
-    </div>
+    
+  
     <div class="end-tags">
       <div class="end-tags-left">
         <div class="fireshell-logo-div" oncontextmenu="return false;" title="Extended With FireShell™">
@@ -244,8 +263,6 @@ Maṭa Kalpayak Vat Tava Ōnā</h3></div></div>
     </div>
     <script src="main.js"></script>
     <script src="database.js"></script>
-   
-
 
 </body>
-</htm>
+</html>

@@ -1,6 +1,17 @@
 //All Made By Neksha DeSilva
 //All Images And Icons Of Roar™ is belongs to NekshaDeSilva
-const trackNowPlay = new Audio("Spice-Go-Down-Deh-Ft-Sean-Paul-And-Shaggy-(TrendyBeatz.com).mp3");
+const trackDta = {
+  name:'Monody - TheFatRat',
+  artist:'TheFatRat x Laura Brehm',
+  lyrics:'No Lyrics For This Song',
+  imgBanner:'./cdn/desawanaMusic/mageHadeUpanLade/OIP.jpeg',
+  track:'./cdn/desawanaMusic/mageHadeUpanLade/track.mp3',
+  waveColor:'rgb(13, 12, 24)',
+  songType:'inst',
+  profileColor:'',
+  artistV:'1'
+}
+const trackNowPlay = new Audio(trackDta.track);
 const play = document.querySelector('.playbtn');
 const forward = document.querySelector('.forward');
 const backward = document.querySelector('.backward');
@@ -22,12 +33,6 @@ const bottomLink3= document.querySelector('.policy-elm-div');
 const bottomLink4= document.querySelector('.donate-elm-div');
 const inputLink = document.querySelector('.newSong');
 const closeTop= document.querySelector('.close-top');
-let trackC = document.querySelector('trackChange');
-const track1 = document.querySelector('.track1');
-const track2 = document.querySelector('.track2');
-const track3 = document.querySelector('.track3');
-const track4 = document.querySelector('.track4');
-const track5 = document.querySelector('.track5');
 const eventDiv = document.querySelector('.roar-event-div');
 const eventSvg = document.querySelector('.btn-display');
 const eventText = document.querySelector('.roar-event-h3');
@@ -36,8 +41,34 @@ const star = document.querySelector('.star');
 const effectsP = document.querySelector('.effects-pizzicato');
 const settingPop  =document.querySelector('.pop-up-settings');
 const adPop= document.querySelector('.pop-up-documentation');
-const svSetting = document.querySelector('.saveBtn-settings');
 const rzSetting = document.querySelector('.resetBtn-settings');
+const effectPlayBtn  =document.querySelector('.playbtnE');
+const trackName = document.querySelector('.trackN');
+const trackAz= document.querySelector('.trackAz');
+const trackBanner = document.querySelector('#waveform');
+const lyrics = document.querySelector('.lyr3');
+const addNewDiv = document.querySelector('.add-key-div-right');
+const commonInvisDiv = document.querySelector('.add-key-div-right');
+const commonInvisDiv2 = document.querySelector('.upload-offline-key-div-right');
+const rightPLft= document.querySelector('.right-p-left');
+const loadDiv = document.querySelector('.loadwheel-right-ops-common');
+const msgBox_hero_big  = document.querySelector('#massage-box-cen');
+const massageBox = document.querySelector('#promo-msg') || document.querySelector('#msg');
+effectMuteStatus = 0;
+prog.value =0;
+effectPlayBtn.addEventListener('click', function(){
+  if(effectMuteStatus== 0){
+    effectMuteStatus=1;
+    sineWave.pause();
+    sineWave.connect
+    effectPlayBtn.innerHTML = '<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>'
+  }else{
+    sineWave.play();
+    effectMuteStatus = 0;
+    effectPlayBtn.innerHTML = ' <path class="playcls" d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>';
+  }
+});
+
 let starred = 0;
 document.querySelector('body'). onselectstart = function (){
   return false; 
@@ -120,12 +151,15 @@ forward.addEventListener('click', function(){
     trackNowPlay.currentTime += 10;
     eventDiv.style.visibility = 'visible';
     eventText.innerHTML = 'Forward';
+    wavesurfer.skipForward(10);
+    wavesurfer.pause();
     eventSvg.innerHTML = '<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16ZM4.79 5.093 8 7.386V5.5a.5.5 0 0 1 .79-.407l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 8 10.5V8.614l-3.21 2.293A.5.5 0 0 1 4 10.5v-5a.5.5 0 0 1 .79-.407Z"/>';
 })
 play.addEventListener('click', function(){
     if(trackNowPlay.paused){
         localStorage.setItem('playing?', '1');
         trackNowPlay.play();
+        wavesurfer.play();
         eventDiv.style.visibility = 'visible';
         eventText.innerHTML = 'Playing';
         eventSvg.innerHTML = '<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>';
@@ -134,9 +168,9 @@ play.addEventListener('click', function(){
     else{
         localStorage.setItem('playing?', '0');
         trackNowPlay.pause();
+        wavesurfer.pause()
         eventText.innerHTML = 'Paused';
     eventSvg.innerHTML = '<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>';
-        document.querySelector('.roar-monster-section').style.backgroundImage = ' url(roarmonster-classic.png)';
         play.innerHTML = '<path class="<path class="playcls" d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>';
     }
 })
@@ -145,6 +179,7 @@ function eventClose(){
 
 }
 trackNowPlay.addEventListener('timeupdate', function(){
+  localStorage.setItem('playC',(trackNowPlay.currentTime))
   trackNowPlay.addEventListener('pauseed', function(){
     eventDiv.style.visibility = 'visible';
     eventText.innerHTML = 'Paused';
@@ -158,11 +193,10 @@ trackNowPlay.addEventListener('timeupdate', function(){
     document.querySelector('.display').addEventListener('mouseover', function(){
       eventDiv.style.visibility = 'visible';
     })
-    
-    prog.style.width= Math.floor(trackNowPlay.currentTime)+"%";
-    console.log(prog.style.width);
+    prog.value =100 /  trackNowPlay.duration *trackNowPlay.currentTime ;
     if(trackNowPlay.paused){
       eventDiv.style.visibility = 'visible';
+      wavesurfer.pause()
     /*eventText.innerHTML = 'Paused';
     eventSvg.innerHTML = '<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>';
         document.querySelector('.roar-monster-section').style.backgroundImage = ' url(roarmonster-classic.png)';*/
@@ -171,7 +205,7 @@ trackNowPlay.addEventListener('timeupdate', function(){
       /*eventDiv.style.visibility = 'visible';
       eventText.innerHTML = 'Playing';
       eventSvg.innerHTML = '<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>';*/
-      document.querySelector('.roar-monster-section').style.backgroundImage = '';
+      wavesurfer.play()
         play.innerHTML = '<path class="playcls" d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>';
     }
     trackDur.innerHTML = Math.floor((trackNowPlay.currentTime*60)/60);
@@ -186,22 +220,29 @@ trackNowPlay.addEventListener('timeupdate', function(){
     if(!inputLink.value){
       gobtn.disabled = true;
       gobtn.style.cursor = 'default';
-      gobtn.style.fill = 'rgb(119, 7, 211)';
+      gobtn.style.fill = 'rgb(40, 38, 70)';
     }else{
       gobtn.disabled = false;
       gobtn.style.fill = '';
       gobtn.style.cursor = '';
     }
-})
 
+
+})
+prog.addEventListener('change', function(){
+  
+})
 backward.addEventListener('click', function(){
     trackNowPlay.currentTime -= 10;
     eventDiv.style.visibility = 'visible';
     eventText.innerHTML = 'Backward';
+    wavesurfer.skipBackward(10);
+    wavesurfer.pause();
     eventSvg.innerHTML = ' <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.79-2.907L8.5 7.028V5.5a.5.5 0 0 0-.79-.407L5 7.028V5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0V8.972l2.71 1.935a.5.5 0 0 0 .79-.407V8.972l2.71 1.935A.5.5 0 0 0 12 10.5v-5a.5.5 0 0 0-.79-.407z"/>';
 })
 replay.addEventListener('click', function(){
         eventDiv.style.visibility = 'visible';
+        wavesurfer.setCurrentTime(0);
         eventText.innerHTML = 'Replaying';
         eventSvg.innerHTML = '<path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/><path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>';
         trackNowPlay.currentTime = 0;
@@ -209,47 +250,57 @@ replay.addEventListener('click', function(){
   
 })
 trackNowPlay.addEventListener('canplay', function(){
+
+  prog.value =100 /  trackNowPlay.duration *trackNowPlay.currentTime ;
+  trackName.innerHTML = trackDta.name;
+  trackAz.innerHTML = trackDta.artist;
+  trackBanner.style.backgroundImage = 'url(' + trackDta.imgBanner + ')';
+  lyrics.innerHTML = trackDta.lyrics;
+  lyrics.style.whiteSpace = 'pre-wrap';
+  lyrics.style.lineHeight = '26px';
   document.querySelector('.playtrack').style.opacity = '';
   document.querySelector('.playtrack').disabled = false;
-   document.querySelector('.fireshell-load').style.visibility = 'hidden';
-   document.querySelector('.fireshell-load').style.position = 'absolute';
-   document.querySelector('.roar-monster-section').style.visibility = 'visible';
-   document.querySelector('.roar-monster-section').style.position = 'relative';
-   document.querySelector('.roar-monster-section').style.animation = 'fade-in 1s 1';
-   
-})
+   loadDiv.style.visibility = '';
+  msgBox_hero_big.style.visibility = '';
+});
 trackNowPlay.addEventListener('loadstart', function(){
+  wavesurfer.pause();
   document.querySelector('.playtrack').disabled = true;
   document.querySelector('.playtrack').style.opacity = '60%';
   eventDiv.style.visibility = 'visible';
     eventText.innerHTML = 'Loading';
     eventSvg.innerHTML = ' <path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.444 12.444 0 0 0 8 3C5.259 3 2.723 3.882.663 5.379a.485.485 0 0 0-.048.736.518.518 0 0 0 .668.05A11.448 11.448 0 0 1 8 4c2.507 0 4.827.802 6.716 2.164.205.148.49.13.668-.049z"/><path d="M13.229 8.271a.482.482 0 0 0-.063-.745A9.455 9.455 0 0 0 8 6c-1.905 0-3.68.56-5.166 1.526a.48.48 0 0 0-.063.745.525.525 0 0 0 .652.065A8.46 8.46 0 0 1 8 7a8.46 8.46 0 0 1 4.576 1.336c.206.132.48.108.653-.065zm-2.183 2.183c.226-.226.185-.605-.1-.75A6.473 6.473 0 0 0 8 9c-1.06 0-2.062.254-2.946.704-.285.145-.326.524-.1.75l.015.015c.16.16.407.19.611.09A5.478 5.478 0 0 1 8 10c.868 0 1.69.201 2.42.56.203.1.45.07.61-.091l.016-.015zM9.06 12.44c.196-.196.198-.52-.04-.66A1.99 1.99 0 0 0 8 11.5a1.99 1.99 0 0 0-1.02.28c-.238.14-.236.464-.04.66l.706.706a.5.5 0 0 0 .707 0l.707-.707z"/>';
   trackNowPlay.pause();
-  document.querySelector('.fireshell-load').style.visibility = 'visible';
-   document.querySelector('.fireshell-load').style.position =    'absolute';
+  loadDiv.style.visibility = 'visible';
+  msgBox_hero_big.style.visibility = 'visible';
 })
 let onpage = 0;
 showMore.addEventListener('mouseup', function(){
-    document.querySelector('.right').style.width = '10%';
-    showMore.style.position = 'fixed';
-  
-    if(onpage == 0){
-        document.querySelector('.right').style.width = '10rem';
-        track1.style.visibility = 'visible';
-        track2.style.visibility = 'visible';
-        track3.style.visibility = 'visible';
-        track4.style.visibility = 'visible';
-        track5.style.visibility = 'visible';
-        onpage = 1;
-    }else if(onpage == 1){
-      track1.style.visibility = 'hidden';
-      track2.style.visibility = 'hidden';
-      track3.style.visibility = 'hidden';
-      track4.style.visibility = 'hidden';
-      track5.style.visibility = 'hidden';
-        document.querySelector('.right').style.width = '0%';
-        onpage = 0;
-    }
+  if(onpage == 0){
+    document.querySelector('.right').style.width = '100%';
+    document.querySelector('.beatmaax-svg-signIn').style.visibility = 'visible';
+    document.querySelector('.beatmaax-svg-signIn').style.position = 'relative';
+    commonInvisDiv.style.visibility =  'visible';
+    commonInvisDiv.style.position = 'relative';
+    commonInvisDiv2.style.visibility =  'visible';
+    commonInvisDiv2.style.position = 'relative';
+    rightPLft.style.paddingRight = '1rem';
+    rightPLft.style.animation = 'right-outcome-fd 300ms 1';
+    onpage = 1;
+  }else{
+    document.querySelector('.right').style.width = '0%';
+    document.querySelector('.beatmaax-svg-signIn').style.visibility = 'hidden';
+    document.querySelector('.beatmaax-svg-signIn').style.position = 'fixed';
+    commonInvisDiv.style.visibility = 'hidden';
+    commonInvisDiv.style.position =   'fixed';
+    commonInvisDiv2.style.visibility ='hidden';
+    commonInvisDiv2.style.position =  'fixed';
+    rightPLft.style.paddingLeft = '';
+    rightPLft.style.paddingRight = '';
+    rightPLft.style.animation = 'right-income-fd 1s 1';
+    onpage = 0;
+  }
+
 })
 if(localStorage.getItem('playing?') == '1' ){
     trackNowPlay.play();
@@ -276,20 +327,18 @@ if(localStorage.getItem('playing?') == '1' ){
     trackNowPlay.play();
     
   }
-  document.querySelector('.developer').addEventListener('click',function(){
-    window.open("https://github.com/NekshaDeSilva");
-  })
-  document.querySelector('.emailus').addEventListener('click',function(){
+  document.querySelector('.email-feedbackDiv').addEventListener('click',function(){
     window.open("mailto:rohandesilvahotmail@gmail.com");
   })
   trackNowPlay.addEventListener('playing', function(){
-    document.querySelector('.roar-monster-section').style.animation = 'roarplay-anim 10s infinite linear';
+  
   })
   gobtn.style.visibility = 'hidden';
   gobtn.style.position =   'fixed';
   closeTop.style.visibility = 'hidden';
   closeTop.style.position =   'fixed';
-addNew.addEventListener('click', function(){
+addNew,addNewDiv.addEventListener('click', function(){
+  window.scrollTo(0, -200)
   document.querySelector('.top').style.height = '3rem';
   noneinWindow();
   inputLink.style.visibility = 'visible';
@@ -298,17 +347,28 @@ addNew.addEventListener('click', function(){
   gobtn.style.position =  'relative';
   closeTop.style.visibility = 'visible';
   closeTop.style.position =  'relative';
+  commonInvisDiv.style.visibility =  'hidden';
+  commonInvisDiv.style.position = 'fixed';
+  commonInvisDiv.style.transition = '0';
+  commonInvisDiv2.style.visibility ='hidden';
+  commonInvisDiv2.style.position =  'fixed';
+  rightPLft.style.paddingLeft = '';
+  rightPLft.style.paddingRight = '';
+  rightPLft.style.animation = 'right-income-fd 1s 1';
 })
 function noneinWindow(){
   document.querySelector('.right').style.width = '0%';
   onpage = 0;
-  track1.style.visibility = 'hidden';
-      track2.style.visibility = 'hidden';
-      track3.style.visibility = 'hidden';
-      track4.style.visibility = 'hidden';
-      track5.style.visibility = 'hidden';
+  commonInvisDiv.style.visibility =  'hidden';
+  commonInvisDiv.style.position = 'fixed';
+  commonInvisDiv2.style.visibility ='hidden';
+  commonInvisDiv2.style.position =  'fixed';
+  rightPLft.style.paddingLeft = '';
+  rightPLft.style.paddingRight = '';
+  rightPLft.style.animation = 'right-income-fd 1s 1';
 }
 closeTop.addEventListener('click', function(){
+  
   document.querySelector('.top').style.height = '0rem';
   noneinWindow();
   gobtn.style.visibility = 'hidden';
@@ -326,6 +386,8 @@ gobtn.addEventListener('click', function(){
   trackNowPlay.load();
   
   trackNowPlay.play();
+
+ 
 })
 function closetopF(){
   document.querySelector('.top').style.height = '0rem';
@@ -337,73 +399,318 @@ function closetopF(){
   inputLink.style.visibility = 'hidden';
   inputLink.style.position =   'fixed';
 }
-track1.addEventListener('click', function(){
-  let inputLinkValue = 'https://www.in2unemusic.com/featuredartists/despacito/luis_fonsi_daddy_yankee_feat_bieber_despacito_remix.mp3';
-  closetopF();
-  trackNowPlay.src = inputLinkValue;
-  console.log(trackNowPlay);
-  trackNowPlay.load();
-  
-  trackNowPlay.play();
-})
-track2.addEventListener('click', function(){
-   let inputLinkValue ='https://sv2.mybia2music.com/s2/Music/1399/03/29/Jason%20Derulo/Jason%20Derulo%20-%20Savage%20Love.mp3';
-  closetopF();
-  trackNowPlay.src = inputLinkValue;
-  console.log(trackNowPlay);
-  trackNowPlay.load();
-  
-  trackNowPlay.play();
-})
-track3.addEventListener('click', function(){
- let inputLinkValue = 'https://dl3.wapkizfile.info/filedownload/G8cEsvIWYdgsEfZKt81zGSr_p_uuaeci1_s_vt38ypUM4xPf_p_JxLDF4TaaizZPrK3JNycUv4ur3MwLvU4poMn9O2pyOFVAPLNhD925nNMUxkdaaPI0HSP1SaE_s_adtHlqOCUMzm3ziw2uYTsoFg9jYBYA_s_w_p_EyA/TheFatRat-Monody-feat-Laura-Brehm-(englishsongs.fun).mp3';
-  closetopF();
-  trackNowPlay.src = inputLinkValue;
-  console.log(trackNowPlay);
-  trackNowPlay.load();
-  
-  trackNowPlay.play();
-})
-track4.addEventListener('click', function(){
-  let inputLinkValue = 'https://sinhanada.net/files/Your%20Request%20Mp3/I%20Want%20It%20That%20Way%20-%20Backstreet%20Boys.mp3';
-  closetopF();
-  trackNowPlay.src = inputLinkValue;
-  console.log(trackNowPlay);
-  trackNowPlay.load();
-  
-  trackNowPlay.play();
-})
-track5.addEventListener('click',  function(){
-  let inputLinkValue ='https://cdn.trendybeatz.com/audio/Spice-Go-Down-Deh-Ft-Sean-Paul-And-Shaggy-(TrendyBeatz.com).mp3'
-  closetopF();
-  trackNowPlay.src = inputLinkValue;
-  console.log(trackNowPlay);
-  trackNowPlay.load();
-  
-  trackNowPlay.play();
-})
+
 let effectBoxA=0;
+document.querySelector('.roar-section-cen').style.backgroundImage = 'linear-gradient(65deg,rgb(6, 110, 180, 0.836),rgb(119, 7, 211, 0.836)50%,rgb(24,24,24)3%),' + 'url('+ trackDta.imgBanner + ')'; 
+
+
 effectsP.addEventListener('click', function(){
   if(effectBoxA == 0){
     effectBoxA = 1;
+    
+      
+    
+    
+
     settingPop.style.visibility ='visible';
     settingPop.style.position = 'relative';
+    document.querySelector('.trackD').style.animation = 'trackD-Top-anim 500ms 1';
     adPop.style.visibility ='visible';
     adPop.style.position = 'relative';
+    document.querySelector('.display').style.visibility = 'hidden';
+    document.querySelector('.display').style.position = 'fixed';;
+    document.querySelector('.hidden-divFor-more-effects').appendChild(showMore);
+    showMore.style.position = 'relative';
+    document.querySelector('.hidden-divFor-more-effects').style.position = 'relative';
+    document.querySelector('.hidden-divFor-more-effects').style.visibility = 'visible';
+
     document.querySelector('.popup-box-container-hidden-cen').style.animation = 'pop-up-in-come-anim 1s 1';
   }else if(effectBoxA == 1){
     effectBoxA = 0;
+   
+
+    document.querySelector('.trackD').style.animation = 'pop-up-in-come-anim 500ms 1';
+    document.querySelector('body').appendChild(showMore);
+    document.querySelector('.display').style.visibility = 'hidden';
+    showMore.style.position = 'fixed';
+    document.querySelector('.display').style.position = 'fixed';
+    
     settingPop.style.visibility ='hidden';
     settingPop.style.position = 'fixed';
     adPop.style.visibility ='hidden';
+    document.querySelector('.display').style.visibility = 'visible';
+    document.querySelector('.display').style.position = 'relative';
     adPop.style.position = 'fixed';
     document.querySelector('.popup-box-container-hidden-cen').style.animation = '';
   }
 
 })
-svSetting.addEventListener('mousedown', function(){
-  svSetting.style.backgroundColor = 'rgb(6, 110, 180)';
+rzSetting.addEventListener('mousedown', function(){
+  rzSetting.style.backgroundColor = 'rgb(182, 36, 0)';
 })
-svSetting.addEventListener('mouseup', function(){
-  svSetting.style.backgroundColor = '';
+rzSetting.addEventListener('mouseup', function(){
+  rzSetting.style.backgroundColor = '';
+})
+document.querySelector('body').addEventListener('dblclick' , function(){
+  document.querySelector('#massage-box-cen').style.visibility = 'visible';
+})
+const passwordTxtInpt = document.querySelector('.password-input');
+const passwordStatus =document.querySelector('.password-stts-spn');
+passwordTxtInpt.addEventListener('input', function(){
+    if(passwordTxtInpt.value.length >= 8){
+        passwordStatus.innerHTML = 'Max Is 8 Chars.'
+    }else if(passwordTxtInpt.value.length <= 7){
+      passwordStatus.innerHTML = 'Type More.';
+      pswrdlivechk()
+    }
+    function pswrdlivechk() { passwordStatus.innerHTML += ' 8 / ' + passwordTxtInpt.value.length}
+    if(passwordTxtInpt.value.length == 8){
+      return pswrdlivechk();
+    }
+    var ranges = [
+      '\ud83c[\udf00-\udfff]',
+      '\ud83d[\udc00-\ude4f]',
+      '\ud83d[\ude80-\udeff]' 
+    ];
+    
+    
+   
+      removeInvalidChars();
+  
+    
+    function removeInvalidChars() {
+      var str = passwordTxtInpt;
+     
+      str = str.replace(new RegExp(ranges.join('|'), 'g'), '');
+    }
+});
+const nameTextInput = document.querySelector('.username-input');
+nameTextInput.addEventListener('input', function(){
+  /*Postponed
+  const newDiv = document.createElement('div');
+  document.querySelector('.common-right-p-div-toolbox-all').appendChild(newDiv);
+  document.querySelector('div').className = 'common-right-p-div-toolbox';
+  */
+});
+
+document.querySelector('body').addEventListener('DOMContentLoaded', function(){
+  prog.value =100 /  trackNowPlay.duration *trackNowPlay.currentTime ;
+  trackName.innerHTML = trackDta.name;
+  trackAz.innerHTML = trackDta.artist;
+  trackBanner.style.backgroundImage = 'url(' + trackDta.imgBanner + ')';
+  lyrics.innerHTML = trackDta.lyrics;
+  lyrics.style.whiteSpace = 'pre-wrap';
+  lyrics.style.lineHeight = '26px';
+})
+
+//this is the starting of pizzicato Js
+//this is the starting of pizzicato Js
+
+const pannerInput = document.querySelector('.str-pan');
+const pannerInputText = document.querySelector('.pan-value');
+const pannerInputRight = document.querySelector('.str-pan1');
+const flangerInput = document.querySelector('.str-fln');
+const flangerInputText = document.querySelector('.fln-value');
+const noiseInput  = document.querySelector('.str-noi');
+const noiseInputText = document.querySelector('.noi-value');
+const bassInput = document.querySelector('.str-bass');
+const bassInputText = document.querySelector('.bass-value');
+const picthInput = document.querySelector('.str-pch');
+const pitchInputText = document.querySelector('.pch-value');
+
+
+function pChk(){
+  if(picthInput.checked == true){
+    localStorage.setItem('pchNode', 1);
+    pitchInputText.innerHTML = 'On';
+    pitchInputText.innerHTML = (picthInput.value);
+    sineWave.addEffect(
+      highPassFilter
+      
+    );
+  
+    
+  }else{
+    localStorage.setItem('pchNode', 0);
+    pitchInputText.innerHTML = 'None';
+    sineWave.removeEffect(
+      highPassFilter
+    );
+  }
+
+ 
+}
+function paChk(){
+  if (pannerInput.checked == true) {
+    localStorage.setItem('panNode', 1);
+    sineWave.addEffect(
+      sterioPanner
+      
+    );
+   
+    
+  } else if(pannerInput.checked == false) {
+    localStorage.setItem('panNode', 0);
+    sineWave.removeEffect(
+      sterioPanner
+    )
+  }
+  
+  
+}
+function paOChk(){
+  if (pannerInputRight.checked == true) {
+    localStorage.setItem('panRightNode', 1);
+    sineWave.addEffect(
+      sterioPannerRight
+    );
+   
+  } else if(pannerInputRight.checked == false) {
+    localStorage.setItem('panRightNode', 0);
+    sineWave.removeEffect(
+      sterioPannerRight
+    )
+  }
+  
+}
+function fChk(){
+  if(flangerInput.checked == true){
+    flangerInputText.innerHTML = 'On';
+    localStorage.setItem('flngerNode', 1);
+    sineWave.addEffect(
+      flanger
+    );
+   
+  }else{
+    flangerInputText.innerHTML = 'None';
+    localStorage.setItem('flngerNode', 0);
+    sineWave.removeEffect(
+      flanger
+    );
+  }
+}
+function nChk(){
+  if(noiseInput.checked == true){
+    noiseInputText.innerHTML = 'On';
+    localStorage.setItem('noiseNode', 1);
+    sineWave.addEffect(
+      noise,
+      delay,
+      convolver
+    );
+    
+  }else{
+    noiseInputText.innerHTML = 'None';
+    localStorage.setItem('noiseNode', 0);
+    sineWave.removeEffect(
+      noise,
+      delay,
+      convolver
+    );
+  }
+}
+function bChk(){
+  if(bassInput.checked == true){
+    bassInputText.innerHTML = 'On';
+    localStorage.setItem('bassNode', 1);
+    sineWave.addEffect(
+    lowPassFilter
+    );
+    
+  }else{
+    bassInputText.innerHTML = 'None';
+    localStorage.setItem('bassNode', 0);
+    sineWave.removeEffect(
+     lowPassFilter
+    );
+  }
+}
+rzSetting.addEventListener('click',function(){
+  localStorage.removeItem('flngerNode');
+  localStorage.removeItem('pchNode');
+  localStorage.removeItem('panNode');
+  localStorage.removeItem('panRightNode');
+  localStorage.removeItem('flngerNode');
+})
+var sineWave  = new Pizzicato.Sound({
+  source:'file',
+  options:{
+    path: trackDta.track
+  },function() {
+    console.log('sound file loaded!');
+}
+
+});
+var highPassFilter = new Pizzicato.Effects.HighPassFilter({
+  frequency:15,
+  peak: 10
+ });
+
+var sterioPanner = new Pizzicato.Effects.StereoPanner({
+  pan:-1
+});
+var sterioPannerRight = new Pizzicato.Effects.StereoPanner({
+  pan:+1
+});
+var noise = new Pizzicato.Effects.PingPongDelay({
+  feedback: 0.1,
+  time: 1,
+  mix: -0.5
+});
+var delay = new Pizzicato.Effects.Delay({
+  feedback: 0.6,
+  time: 1,
+  mix: +1
+});
+var flanger = new Pizzicato.Effects.Flanger({
+  time: 0.45,
+  speed: 0.2,
+  depth: 0.3,
+  feedback: 0.1,
+  mix: 0.5
+ });
+ var convolver = new Pizzicato.Effects.Convolver({
+  impulse:'./compressor-Beat.mp3',
+  mix: 0.5
+}); 
+var lowPassFilter = new Pizzicato.Effects.LowPassFilter({
+  frequency: 440,
+  peak: 3
+});
+window.addEventListener('load', function(){
+  if(localStorage.getItem('noiseNode') == 1){
+    noiseInput.value = true;
+
+  }else if(!localStorage.getItem('noiseNode')){
+    noiseInput.value = false;
+  }
+})
+
+//WaveSurfer Js
+
+var wavesurfer = WaveSurfer.create({
+  container: '.roar-monster-section',
+  waveColor: 'rgb(6, 110, 180)',
+  progressColor: trackDta.waveColor,
+  responsive:true,
+  hideScrollbar: true,
+  height:200,
+  barGap: 3,
+  barHeight: 1,
+  barMinHeight: .1,
+  barRadius: 6,
+  barWidth: 4
+
+});
+wavesurfer.load(trackDta.track);
+trackNowPlay.addEventListener('canplay', function(){
+  wavesurfer.setVolume(0)
+})
+wavesurfer.on('ready', function(){
+  document.querySelector('.fireshell-load').style.visibility = 'hidden';
+  document.querySelector('.fireshell-load').style.position = 'absolute';
+});
+wavesurfer.on('error', function(){
+  massageBox.style.visibility = 'visible';
+  msgBox_hero_big.style.visibility = 'visible';
 })
